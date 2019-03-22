@@ -48,12 +48,12 @@ def on_click(x, y, button, pressed):
         if listen_click:
             if box_stage == 0:
                 if box_num == 0:
-                    data[image] = [[(x, y + vertical_offset)]]
+                    data[image] = [[(x, y - vertical_offset)]]
                 else:
-                    data[image].append([(x, y + vertical_offset)])
+                    data[image].append([(x, y - vertical_offset)])
                 box_stage += 1
             elif box_stage == 1:
-                data[image][box_num].append((x, y + vertical_offset))
+                data[image][box_num].append((x, y - vertical_offset))
                 listen_click = False
                 print("Box " + str(box_num) + " done.")
                 box_stage = 0
