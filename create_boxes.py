@@ -38,18 +38,18 @@ def on_click(x, y, button, pressed):
         global data
         global box_num
         global listen_click
-
-        if box_stage == 0:
-            if box_num == 0:
-                data[image] = [[(x, y)]]
-            else:
-                data[image].append([(x, y)])
-            box_stage += 1
-        elif box_stage == 1:
-            data[image][box_num].append((x, y))
-            box_stage = 0
-            listen_click = False
-            print("Box " + str(box_num) + " done.")
+        if listen_click:
+            if box_stage == 0:
+                if box_num == 0:
+                    data[image] = [[(x, y)]]
+                else:
+                    data[image].append([(x, y)])
+                box_stage += 1
+            elif box_stage == 1:
+                data[image][box_num].append((x, y))
+                listen_click = False
+                print("Box " + str(box_num) + " done.")
+                box_stage = 0
 
 with mouse.Listener(on_click=on_click) as listener:
     listener.join()
