@@ -24,6 +24,7 @@ def on_key(key):
         box_num = 0
         image_num += 1
         image = "2019-03-21 (" + str(image_num) + ")"
+        print("New image.")
     elif (key == keyboard.Key.f7):
         listen_click = True
         box_num += 1
@@ -48,6 +49,7 @@ def on_click(x, y, button, pressed):
             data[image][box_num].append((x, y))
             box_stage = 0
             listen_click = False
+            print("Box " + str(box_num) + " done.")
 
 with mouse.Listener(on_click=on_click) as listener:
     listener.join()
